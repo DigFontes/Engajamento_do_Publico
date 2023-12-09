@@ -22,11 +22,8 @@
 
 # ### Vamos importar e visualizar a nossa base
 
-<<<<<<< HEAD
 # In[1]:
-=======
 # In[37]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Importando o pandas
@@ -38,11 +35,8 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 
-<<<<<<< HEAD
 # In[2]:
-=======
 # In[38]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Para melhorar a visualização, vamos criar um padrão no formato dos valores
@@ -50,19 +44,16 @@ pd.options.display.float_format = '{:,.2f}'.format
 
 # Importar a base em excel
 # - Base: 08. Analisando o engajamento no Instagram.xlsx
-<<<<<<< HEAD
 df = pd.read_excel(r'C:\Users\Virtual Office\08. Analisando o engajamento no Instagram.xlsx')
 display(df.head(10))
 
 
 # In[3]:
-=======
 df = pd.read_excel(r'C:\Users\Grupo Condor\Desktop\teste\08. Analisando o engajamento no Instagram.xlsx')
 display(df.head(10))
 
 
 # In[39]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 #Convertendo os dados para melhor tipo possível
@@ -82,11 +73,8 @@ df = df.rename(columns={'Interacoes ': 'Interacoes'})
 display(df.head(10))
 
 
-<<<<<<< HEAD
 # In[4]:
-=======
 # In[40]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 #Visualizando e entendo com que tipo de dados e farmato estou trabalhando. Consigo compreender o tipo,
@@ -100,21 +88,15 @@ df.describe()
 # ### Carrossel possui apenas 8 valores não nulos
 # - Vamos entender os valores de carrossel
 
-<<<<<<< HEAD
 # In[5]:
-=======
 # In[41]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df.loc[df.Carrossel.isnull(),'Carrossel']
 
 
-<<<<<<< HEAD
 # In[6]:
-=======
 # In[42]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df.loc[df.Carrossel.notnull(),'Carrossel']
@@ -122,22 +104,16 @@ df.loc[df.Carrossel.notnull(),'Carrossel']
 
 # - Na verdade, os valores nulos são de postagens que não são carrossel. Sendo assim o nulo deveria ser "N"
 
-<<<<<<< HEAD
 # In[7]:
-=======
 # In[43]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Removendo a coluna devido 44 valores nulos
 df.loc[df.Carrossel.isnull(),'Carrossel'] = 'N'
 
 
-<<<<<<< HEAD
 # In[8]:
-=======
 # In[44]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 #Visualizando e entendo com que tipo de dados e farmato estou trabalhando. Consigo compreender o tipo,
@@ -148,33 +124,24 @@ display(df.isnull().sum())
 df.describe()
 
 
-<<<<<<< HEAD
 # In[9]:
-=======
 # In[45]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Visualizando as 5 primeiras linhas
 df.head()
 
 
-<<<<<<< HEAD
 # In[10]:
-=======
 # In[46]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Visualizando as 5 ultimas linhas
 df.tail()
 
 
-<<<<<<< HEAD
 # In[11]:
-=======
 # In[47]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Agrupando os dados por tipo 
@@ -185,22 +152,16 @@ display(df_tipo)
 
 # ### Visualizando essas informações de maneira gráfica
 
-<<<<<<< HEAD
 # In[12]:
-=======
 # In[48]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Um gráfico de dispersão ajudaria a entender melhor curtidas e comentários
 df.plot(kind="scatter",x="Dia",y="Curtidas",figsize=(14,8));
 
 
-<<<<<<< HEAD
 # In[13]:
-=======
 # In[49]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Podemos colocar curtidas e comentários no mesmo gráfico
@@ -208,11 +169,8 @@ ax = df.plot(kind="scatter",x="Dia",y="Curtidas",color="blue",label="Curtidas",f
 df.plot(kind="scatter",x="Dia",y="Comentários",color="red",label="Comentários",figsize=(14,8),ax=ax);
 
 
-<<<<<<< HEAD
 # In[14]:
-=======
 # In[50]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # A escala de curtidas pode estar atrapalhando a visualização, por isso vamos deixar comentários em um gráfico separado
@@ -224,22 +182,16 @@ df.plot(kind="scatter",x="Dia",y="Comentários",color="red",label="Comentários"
 
 # ### A primeira coisa que podemos fazer é pegar os 5 primeiros registros com mais e menos curtidas
 
-<<<<<<< HEAD
 # In[15]:
-=======
 # In[51]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Ordenando os valores por curtidas
 df.sort_values(by="Curtidas",ascending=False).head(30)
 
 
-<<<<<<< HEAD
 # In[16]:
-=======
 # In[52]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Selecionando os 5 últimos valores 
@@ -252,11 +204,8 @@ df.sort_values(by="Curtidas",ascending=False).tail(10)
 # <br><br>
 # - **Isso pode ser um indicador que pessoas e campanhas tem relação com as curtidas**
 
-<<<<<<< HEAD
 # In[17]:
-=======
 # In[53]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Agrupando as informações por tipo e pessoas
@@ -379,15 +328,12 @@ fig3.update_layout(
 fig3.show()
 
 
-<<<<<<< HEAD
-=======
 # In[54]:
 
 
 get_ipython().system('pip install dash')
 
 
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 # # Conclusões
 
 #  * Podemos inferir que conteúdos com pessoas performam melhor que conteúdos sem pessoas.
@@ -397,11 +343,8 @@ get_ipython().system('pip install dash')
 
 # # Vamos analisar como os conteúdos criados performam por dia  e mês para 2021
 
-<<<<<<< HEAD
 # In[18]:
-=======
 # In[55]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 # Criando uma lista com os anos que há no dataframe
@@ -415,11 +358,8 @@ display(df_2021.head(10))
 display(df_2022.head(10))
 
 
-<<<<<<< HEAD
 # In[19]:
-=======
 # In[56]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df_2021_selecionado = df_2021.loc[:, ['Curtidas', 'Comentários', 'Interacoes', 'Pessoas', 'Campanhas', 'Dia','Mes','Ano']]
@@ -475,11 +415,8 @@ fig5.show()
 
 # # Vamos analisar como os conteúdos criados performam por dia  e mês para 2022
 
-<<<<<<< HEAD
 # In[20]:
-=======
 # In[57]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df_2022_selecionado = df_2022.loc[:, ['Curtidas', 'Comentários', 'Interacoes', 'Pessoas', 'Campanhas', 'Dia','Mes','Ano']]
@@ -526,8 +463,6 @@ fig7.update_layout(
 fig7.show()
 
 
-<<<<<<< HEAD
-=======
 # In[58]:
 
 
@@ -550,7 +485,6 @@ fig6.update_layout(
 fig6.show()
 
 
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 # # Conslusões
 
 # * Dias de maior engajamento do publico no ano de 2021:
@@ -562,11 +496,8 @@ fig6.show()
 
 # # Vamos analisar os conteúdos com base nas tags 
 
-<<<<<<< HEAD
 # In[21]:
-=======
 # In[59]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df.Tags = df.Tags.str.split('/')
@@ -579,22 +510,16 @@ df = df.explode('Tags')
 display(df.head(10))
 
 
-<<<<<<< HEAD
 # In[22]:
-=======
 # In[60]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df_tags = df.groupby('Tags')[['Curtidas','Comentários','Interacoes']].mean()
 df_tags.sort_values('Curtidas', ascending =False)
 
 
-<<<<<<< HEAD
 # In[23]:
-=======
 # In[61]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df_tags_campanhas = df.groupby(['Campanhas','Tags'])[['Curtidas','Comentários','Interacoes']].mean()
@@ -645,11 +570,8 @@ Ação:
 fig9.show()
 
 
-<<<<<<< HEAD
 # In[24]:
-=======
 # In[62]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 df_tags_tipo = df.groupby(['Tipo','Tags'])[['Curtidas','Comentários','Interacoes']].mean()
@@ -702,11 +624,8 @@ Ações:
 ''')
 
 
-<<<<<<< HEAD
 # In[25]:
-=======
 # In[63]:
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 
 
 import dash
@@ -745,11 +664,8 @@ current_index = 0
 
 # Estilos personalizados
 app_colors = {
-<<<<<<< HEAD
     'background': '#334B48',  
-=======
     'background': '#334B48',  # Alteração da cor de fundo para um tom de cinza escuro
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
     'text': '#f2f2f2'  # Cor do texto para um tom claro
 }
 
@@ -766,10 +682,7 @@ app.layout = html.Div(style={'textAlign': 'center', 'backgroundColor': app_color
         ], style={'marginTop': '20px'})
     ], style={'columnCount': 1, 'width': '80%', 'margin': 'auto', 'marginTop': '20px'}),
     
-<<<<<<< HEAD
-=======
     # Adicione mais dcc.Graph conforme necessário para mais gráficos existentes
->>>>>>> edfcf3b9572891a7a259fc23f77210ffa50e02aa
 ])
 
 # Função para atualizar o gráfico e o texto explicativo com base no índice
