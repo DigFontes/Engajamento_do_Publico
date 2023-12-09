@@ -44,13 +44,13 @@ pd.options.display.float_format = '{:,.2f}'.format
 
 # Importar a base em excel
 # - Base: 08. Analisando o engajamento no Instagram.xlsx
-df = pd.read_excel(r'C:\Users\Virtual Office\08. Analisando o engajamento no Instagram.xlsx')
-display(df.head(10))
+df = pd.read_excel(r'08.Analisando_o_engajamento_no_Instagram.xlsx')
+
 
 
 # In[3]:
-df = pd.read_excel(r'C:\Users\Grupo Condor\Desktop\teste\08. Analisando o engajamento no Instagram.xlsx')
-display(df.head(10))
+df = pd.read_excel(r'08.Analisando_o_engajamento_no_Instagram.xlsx')
+
 
 
 # In[39]:
@@ -70,7 +70,6 @@ df = df.drop(columns = ['Data', 'Visualizações'], axis = 1)
 # Remover espaços extras no nome da coluna 'Interações'
 df = df.rename(columns={'Interacoes ': 'Interacoes'})
 
-display(df.head(10))
 
 
 # In[4]:
@@ -81,7 +80,6 @@ display(df.head(10))
 #quantas linhas, quantas colunas e quantidade de dados nulos ou vazios.
 df.info()
 df.shape
-display(df.isnull().sum())
 df.describe()
 
 
@@ -120,7 +118,6 @@ df.loc[df.Carrossel.isnull(),'Carrossel'] = 'N'
 #quantas linhas, quantas colunas e quantidade de dados nulos ou vazios.
 df.info()
 df.shape
-display(df.isnull().sum())
 df.describe()
 
 
@@ -147,7 +144,7 @@ df.tail()
 # Agrupando os dados por tipo 
 df_tipo = df.drop(columns = ['Tags', 'Pessoas','Campanhas','Carrossel','Dia','Mes','Ano'], axis = 1)
 df_tipo = df_tipo.groupby(by='Tipo').sum()
-display(df_tipo)
+
 
 
 # ### Visualizando essas informações de maneira gráfica
@@ -220,8 +217,6 @@ colunas = ['Curtidas', 'Comentários', 'Interacoes']
 pessoas_sim = df.loc[(df['Tipo'].isin(tipos)) & (df['Pessoas'] == 'S')]
 pessoas_nao = df.loc[(df['Tipo'].isin(tipos)) & (df['Pessoas'] == 'N')]
 
-display(df1)
-display(df1_1)
 
 
 # Criando figuras de subplots
@@ -262,8 +257,6 @@ colunas = ['Curtidas', 'Comentários', 'Interacoes']
 campanha_sim = df.loc[(df['Tipo'].isin(tipos)) & (df['Campanhas'] == 'S')]
 campanha_nao = df.loc[(df['Tipo'].isin(tipos)) & (df['Campanhas'] == 'N')]
 
-display(df2)
-display(df2_1)
 
 # Criando figuras de subplots
 fig2 = go.Figure()
@@ -295,8 +288,6 @@ fig2.show()
 df3 = df.groupby(["Tipo",'Pessoas','Campanhas'])["Interacoes"].mean()
 df3_1 = df.groupby(["Tipo",'Pessoas','Campanhas'])["Interacoes"].count()
 
-display(df3)
-display(df3_1)
 
 pessoas_e_campanha_sim = df.loc[(df['Tipo'].isin(tipos)) & (df['Pessoas'] == 'S') & (df['Campanhas'] == 'S')]
 pessoas_e_campanha_nao = df.loc[(df['Tipo'].isin(tipos)) & (df['Pessoas'] == 'N') & (df['Campanhas'] == 'N')]
@@ -354,9 +345,6 @@ anos = ['2021', '2022']
 df_2021 = df[df['Ano'].astype(str) == '2021']
 df_2022 = df[df['Ano'].astype(str) == '2022']
 
-display(df_2021.head(10))
-display(df_2022.head(10))
-
 
 # In[19]:
 # In[56]:
@@ -364,7 +352,6 @@ display(df_2022.head(10))
 
 df_2021_selecionado = df_2021.loc[:, ['Curtidas', 'Comentários', 'Interacoes', 'Pessoas', 'Campanhas', 'Dia','Mes','Ano']]
 
-display(df_2021_selecionado.head(5))
 
 # Reorganizando os dados para usar o 'Dia' como índice e as métricas como colunas
 df_melted = df_2021_selecionado.melt(id_vars=['Dia'], value_vars=['Curtidas', 'Comentários', 'Interacoes'], var_name='Métrica', value_name='Valor')
@@ -507,7 +494,6 @@ valores_nulos = df.isnull()
 # Substituir os valores nulos por NaN
 df[valores_nulos] = float('NaN')
 df = df.explode('Tags')
-display(df.head(10))
 
 
 # In[22]:
@@ -524,7 +510,6 @@ df_tags.sort_values('Curtidas', ascending =False)
 
 df_tags_campanhas = df.groupby(['Campanhas','Tags'])[['Curtidas','Comentários','Interacoes']].mean()
 df_tags_campanhas.sort_values('Curtidas', ascending =False)
-display(df_tags_campanhas)
 
 # Redefinir o índice para tornar 'Campanhas' e 'Tags' colunas do DataFrame
 df_tags_campanhas= df_tags_campanhas.reset_index()
@@ -576,7 +561,7 @@ fig9.show()
 
 df_tags_tipo = df.groupby(['Tipo','Tags'])[['Curtidas','Comentários','Interacoes']].mean()
 df_tags_tipo.sort_values('Curtidas', ascending =False)
-display(df_tags_tipo)
+
 
 # Redefinir o índice para tornar 'Campanhas' e 'Tags' colunas do DataFrame
 df_tags_tipo = df_tags_tipo.reset_index()
